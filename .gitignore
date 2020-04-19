@@ -33,3 +33,4 @@
 
 # Directories to ignore
 bin/*
+/.metadata/*

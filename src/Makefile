@@ -34,22 +34,22 @@ linked_libraries = -lboost_date_time\
                    -lboost_thread-mt
 
 correlate: correlate.cpp $(include_files)
-	g++ -O3 $(linked_libraries) correlate.cpp -o ../bin/correlate
+	g++ -std=c++17 -O3 $(linked_libraries) correlate.cpp -o ../bin/correlate
 
 getdata: scripts getdata.cpp $(include_files)
-	g++ -O3 $(linked_libraries) getdata.cpp -o ../bin/getdata
+	g++ -std=c++17 -O3 $(linked_libraries) getdata.cpp -o ../bin/getdata
 
 mapnetworks: mapnetworks.cpp $(include_files)
-	g++ -O3 $(linked_libraries) mapnetworks.cpp -o ../bin/mapnetworks
+	g++ -std=c++17 -O3 $(linked_libraries) mapnetworks.cpp -o ../bin/mapnetworks
 
 preprocess: preprocess.cpp $(include_files)
-	g++ -O3 $(linked_libraries) preprocess.cpp -o ../bin/preprocess
+	g++ -std=c++17 -O3 $(linked_libraries) preprocess.cpp -o ../bin/preprocess
 
 text_export: text_export.cpp $(include_files)
-	g++ -O3 $(linked_libraries) text_export.cpp -o ../bin/text_export
+	g++ -std=c++17 -O3 $(linked_libraries) text_export.cpp -o ../bin/text_export
 
 spam: spam.cpp $(include_files)
-	g++ -g $(linked_libraries) spam.cpp -o ../bin/spam
+ß	g++ -std=c++17 -g $(linked_libraries) spam.cpp -o ../bin/spam
 
 editor_clean:
 	rm -f *~

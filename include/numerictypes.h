@@ -99,9 +99,13 @@ struct RealType : public boost::additive< RealType< T >,
     inline RealType& operator+=(const RealType& x)
     {
         // Treat invalid_value as an additive identity.
-        if (!is_invalid(x.value))
-            if (is_invalid(value)) value = x.value;
-            else                   value += x.value;
+        if (!is_invalid(x.value)) {
+            if (is_invalid(value)) {
+                value = x.value;
+            } else {
+                value += x.value;
+            }
+        }
         return *this;
     }
 
@@ -113,9 +117,13 @@ struct RealType : public boost::additive< RealType< T >,
     inline RealType& operator-=(const RealType& x)
     {
         // Treat invalid_value as an additive identity.
-        if (!is_invalid(x.value))
-            if (is_invalid(value)) value = 0.0 - x.value;
-            else                   value -= x.value;
+        if (!is_invalid(x.value)) {
+            if (is_invalid(value)) {
+                value = 0.0 - x.value;
+            } else {
+                value -= x.value;
+            }
+        }
         return *this;
     }
 
@@ -153,11 +161,11 @@ const T RealType<T>::invalid_value(NAN);
 template< class T >
 ostream& operator<< (ostream& out, const RealType<T>& t)
 {
-    if (constants::save_as_binary)
+    if (constants::save_as_binary) {
         out.write((char *)(&(t.value)), sizeof(T));
-    else
+    } else {
         out << t.value << " ";
-        
+    }
     return out;
 }
 
@@ -173,13 +181,11 @@ template< class T >
 istream& operator>> (istream& in, RealType<T>& t)
 {
     // Try it.
-    if(constants::save_as_binary)
+    if(constants::save_as_binary) {
         in.read((char *)(&(t.value)), sizeof(T));
-    else        
-    {
+    } else {
         in >> t.value;
-        if (in.fail())
-        {
+        if (in.fail()) {
             // load an invalid value for a failure to cast.
             t = RealType<T>::invalid_value;
             
@@ -290,9 +296,13 @@ struct IntegerType : public boost::additive< IntegerType< T > >
     IntegerType& operator+=(const IntegerType& x)
     {
         // Treat invalid_value as an additive identity.
-        if (!is_invalid(x.value))
-            if (is_invalid(value)) value = x.value;
-            else                   value += x.value;
+        if (!is_invalid(x.value)) {
+            if (is_invalid(value)) {
+                value = x.value;
+            } else {
+                value += x.value;
+            }
+        }
         return *this;
     }
 
@@ -304,9 +314,13 @@ struct IntegerType : public boost::additive< IntegerType< T > >
     IntegerType& operator-=(const IntegerType& x)
     {
         // Treat invalid_value as an additive identity.
-        if (!is_invalid(x.value))
-            if (is_invalid(value)) value = 0 - x.value;
-            else                   value -= x.value;
+        if (!is_invalid(x.value)) {
+            if (is_invalid(value)) {
+                value = 0 - x.value;
+            } else {
+                value -= x.value;
+            }
+        }
         return *this;
     }
 };

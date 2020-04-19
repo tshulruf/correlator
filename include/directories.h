@@ -2,6 +2,7 @@
 #define DIRECTORIES_H
 
 #include <string>
+#include <filesystem>
 #include <unistd.h>
 
 using namespace std;
@@ -54,7 +55,7 @@ protected:
 // s_original_dir
 //      starting working directory from os.
 //
-string WorkingDirectory::s_original_dir(::get_current_dir_name());
+string WorkingDirectory::s_original_dir(std::filesystem::current_path());
 
 
 // PathMaker

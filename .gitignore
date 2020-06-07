@@ -33,4 +33,9 @@
 
 # Directories to ignore
 bin/*
+
+# Eclipse Generated
 /.metadata/*
+.cproject
+.project
+/.settings/*

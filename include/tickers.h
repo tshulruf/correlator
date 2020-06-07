@@ -17,7 +17,7 @@ struct Tick
 // From the Yahoo! Finance CSV file header
 // Date,Open,High,Low,Close,Volume,Adj Close
 // (Only interested in Adj Close.)
-// (date is agregated below...)
+// (date is aggregated below...)
 // Additional data
     // Closing values corrected for background trading energy.
     // CloseNoBkg(n) = round(Close(n) * DeltaBkg(n))
